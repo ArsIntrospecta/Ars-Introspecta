@@ -1,45 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ars Introspecta</title>
+  <meta name="description" content="Ars Introspecta — introspezione visiva, progetti e riflessioni." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-  <header>
-    <h1>Ars Introspecta</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#opere">Opere</a>
-      <a href="#about">Chi sono</a>
-      <a href="#contatti">Contatti</a>
-    </nav>
+  <a class="skip-link" href="#main">Salta al contenuto</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <h1 class="logo">Ars Introspecta</h1>
+        <p class="tagline">Introspezione visiva e ricerca estetica</p>
+      </div>
+
+      <nav class="nav" aria-label="Navigazione principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#opere">Opere</a></li>
+          <li><a href="#about">Chi sono</a></li>
+          <li><a href="#contact">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="home">
-    <h2>Benvenuti in Ars Introspecta</h2>
-    <p>Un viaggio nell’arte e nell’introspezione personale.</p>
-  </section>
+  <main id="main">
+    <section id="home" class="hero">
+      <div class="hero-inner wrap">
+        <div class="hero-text">
+          <h2>Un luogo dove l’arte guarda dentro</h2>
+          <p class="lead">Progetti visivi e testi che esplorano il confine tra l’essere e la forma.</p>
+        </div>
+        <figure class="hero-image" aria-hidden="true">
+          <img src="assets/hero.jpg" alt="Composizione astratta in toni pastello">
+        </figure>
+      </div>
+    </section>
 
-  <section id="opere">
-    <h2>Le mie opere</h2>
-    <p>Qui troverai una selezione dei miei lavori più significativi.</p>
-    <img src="https://via.placeholder.com/400x300" alt="Esempio di opera">
-  </section>
+    <section id="opere" class="wrap section">
+      <h3 class="section-title">Galleria</h3>
+      <p class="muted">Clicca sull’immagine per ingrandire. Le opere sono presentate in ordine di progetto.</p>
 
-  <section id="about">
-    <h2>Chi sono</h2>
-    <p>Sono [il tuo nome], artista e ricercatore visivo. Ars Introspecta è il mio spazio creativo.</p>
-  </section>
+      <div class="gallery-grid" role="list">
+        <!-- Sostituisci con le tue immagini in assets/ -->
+        <figure role="listitem"><img src="assets/opera1.jpg" alt="Opera 1 — titolo breve" tabindex="0"></figure>
+        <figure role="listitem"><img src="assets/opera2.jpg" alt="Opera 2 — titolo breve" tabindex="0"></figure>
+        <figure role="listitem"><img src="assets/opera3.jpg" alt="Opera 3 — titolo breve" tabindex="0"></figure>
+        <figure role="listitem"><img src="assets/opera4.jpg" alt="Opera 4 — titolo breve" tabindex="0"></figure>
+      </div>
+    </section>
 
-  <section id="contatti">
-    <h2>Contatti</h2>
-    <p>Scrivimi: <a href="mailto:tuo@email.com">tuo@email.com</a></p>
-  </section>
+    <section id="about" class="wrap section alt-bg">
+      <div class="about-grid">
+        <div class="about-text">
+          <h3 class="section-title">Chi sono</h3>
+          <p>Mi chiamo <strong>[Tuo Nome]</strong>. Lavoro con pittura, fotografia e scrittura visiva. In questo spazio documento processi, idee e mostre — tutto con un approccio intimo e riflessivo.</p>
+          <p class="muted">Se vuoi sapere di più su un progetto specifico, scrivimi tramite la sezione contatti.</p>
+        </div>
+        <div class="about-photo">
+          <img src="assets/ritratto.jpg" alt="Ritratto dell'artista" />
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 Ars Introspecta</p>
+    <section id="contact" class="wrap section">
+      <h3 class="section-title">Contatti</h3>
+      <p class="muted">Per mostre, collaborazioni o informazioni: compila il form o scrivi direttamente.</p>
+
+      <form class="contact-form" action="YOUR_FORMSPREE_ENDPOINT" method="POST">
+        <div class="form-row">
+          <label>Nome
+            <input type="text" name="name" required>
+          </label>
+          <label>Email
+            <input type="email" name="_replyto" required>
+          </label>
+        </div>
+
+        <label>Messaggio
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+
+        <!-- anti-spam hidden -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Invia</button>
+          <a class="mailto-link" href="mailto:tuo@email.com">Oppure invia un'email</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="muted">© <span id="year"></span> Ars Introspecta — Tutti i diritti riservati</p>
+      <p class="small muted">Made with calm &amp; care</p>
+    </div>
   </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lb-close" class="lb-close" aria-label="Chiudi">×</button>
+    <img id="lb-img" alt="">
+    <p id="lb-caption" class="lb-caption"></p>
+  </div>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
